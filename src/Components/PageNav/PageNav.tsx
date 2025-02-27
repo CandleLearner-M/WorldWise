@@ -41,9 +41,9 @@ export default function PageNav() {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/login" className="cta" onClick={() => hideMenu()}>
+          <Link to="/login" className={styles.ctaLink} onClick={() => hideMenu()}>
             Login
-          </NavLink>
+          </Link>
         </li>
       </ul>
     </nav>
