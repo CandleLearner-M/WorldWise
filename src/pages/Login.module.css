@@ -15,7 +15,8 @@
   gap: 2rem;
 
   /* Different from other form */
-  width: 48rem;
+  width: 80%;
+  max-width: 48rem;
   margin: 8rem auto;
 }
 

@@ -32,3 +32,15 @@
   color: var(--color-light--1);
   margin-bottom: 2.5rem;
 }
+
+@media screen and (max-width: 800px) {
+  .homepage {
+    height: calc(100vh - 3rem);
+    margin: 1.5rem;
+  }
+  .homepage h1 {
+    font-size: 3.5rem;
+    margin: 50% auto 10% auto;
+  }
+
+}

@@ -1,26 +1,131 @@
 .nav {
-  background-color: black;
-  color: white;
-  width: 100%;
-  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .nav ul {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  padding: 0;
-
   list-style: none;
-  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
 }
 
-.nav ul li a {
-  color: white;
+.nav a:link,
+.nav a:visited {
   text-decoration: none;
+  color: var(--color-light--2);
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
+/* CSS Modules feature */
+.nav a:global(.active) {
+  color: var(--color-brand--2);
+}
 
-.nav :global(.active) {
-  color: green;
+a.ctaLink:link,
+a.ctaLink:visited {
+  background-color: var(--color-brand--2);
+  color: var(--color-dark--0);
+  padding: 0.8rem 2rem;
+  border-radius: 7px;
+}
+
+@media screen and (max-width: 800px) {
+  .menubutton {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2.3rem;
+    height: 2rem;
+    cursor: pointer;
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+
+    z-index: 10;
+  }
+
+  .menubutton span {
+    background: white;
+    border-radius: 10px;
+    height: 0.3rem;
+    transition: 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  }
+
+  .menubutton span:nth-of-type(1) {
+    width: 40%;
+  }
+
+  .menubutton span:nth-of-type(2) {
+    width: 100%;
+  }
+
+  .menubutton span:nth-of-type(3) {
+    width: 65%;
+  }
+
+  /* Properly aligned X formation */
+  .menubutton.active span:nth-of-type(1) {
+    height: 0.25rem;
+
+    width: 40%;
+    transform-origin: bottom;
+    transform: rotatez(45deg) translate(3px, 1px);
+  }
+
+  .menubutton.active span:nth-of-type(2) {
+    height: 0.25rem;
+
+    width: 80%;
+
+    transform-origin: top;
+    transform: rotatez(-45deg);
+  }
+
+  .menubutton.active span:nth-of-type(3) {
+    height: 0.25rem;
+
+    transform-origin: bottom;
+    width: 40%;
+    transform:  translate(8px, -4px) rotatez(45deg);
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  .logo {
+    align-self: flex-start;
+    position: absolute;
+    top: 4rem;
+    right: 4rem;
+    z-index: 10;
+
+  }
+
+  .nav ul {
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    justify-content: center;
+    position: relative;
+    background-color: black;
+    height: 100%;
+    transform: translateX(-100%);
+    transition: transform 0.4s ease-in-out;
+  }
+
+  .nav ul.active {
+    transform: translateX(0);
+  }
 }
