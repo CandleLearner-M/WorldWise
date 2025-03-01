@@ -1,7 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Taken from getting started guide at: https://leafletjs.com/examples/quick-start/ */
 @import "https://unpkg.com/leaflet@1.7.1/dist/leaflet.css";
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto+Slab:wght@100..900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto+Slab:wght@100..900&display=swap");
 
 /* These CSS variables are global, so they are available in all CSS modules */
 :root {
@@ -34,8 +37,13 @@ body {
   line-height: 1.6;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Roboto Slab', serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto Slab", serif;
   font-weight: 600;
 }
 
@@ -82,3 +90,18 @@ input:focus {
     "description": "Import CSS Module as `styles`"
   },
 */
+
+
+.hw-100f100 {
+  height: 100%;
+  width: 100%;
+  align-items: center;
+}
+
+.green {
+  background-color: var(--color-brand--2);
+}
+
+.gray {
+  background-color: var(--color-dark--1);
+}
