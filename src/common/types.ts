@@ -12,3 +12,9 @@ export interface City {
   position: Position;
   id: string;
 }
+
+
+export interface Country {
+  country: string;
+  emoji: string;
+}

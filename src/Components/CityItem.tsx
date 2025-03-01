@@ -15,6 +15,9 @@ type CityItemProps = {
 export default function CityItem({
   city: { cityName, date, emoji },
 }: CityItemProps) {
+
+
+  
   return (
     <li className={styles.cityItem}>
       <span className={styles.emoji}> {emoji}</span>
