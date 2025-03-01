@@ -13,7 +13,7 @@ type CityItemProps = {
   city: City;
 };
 export default function CityItem({
-  city: { cityName, country, date, emoji, notes, position },
+  city: { cityName, date, emoji },
 }: CityItemProps) {
   return (
     <li className={styles.cityItem}>
