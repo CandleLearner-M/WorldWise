@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "server": "json-server --watch data/cities.json --port 9010"
   },
   "dependencies": {
     "json-server": "^1.0.0-beta.3",
