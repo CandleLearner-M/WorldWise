@@ -14,6 +14,7 @@ import Login from "./pages/Login";
 import CityList from "./Components/CityList";
 import CountriesList from "./Components/CountriesList";
 import CityComp from "./Components/City";
+import Form from "./Components/Form";
 
 const BASE_URL = "http://localhost:9010";
 
@@ -52,7 +53,7 @@ function App() {
             path="countries"
             element={<CountriesList cities={cities} isLoading={isLoading} />}
           />
-          <Route path="form" element={<p>Form</p>} />
+          <Route path="form" element={<Form />} />
         </Route>
         <Route path="product" element={<Product />} />
         <Route path="pricing" element={<Pricing />} />
