@@ -14,14 +14,14 @@ type CityItemProps = {
   city: City;
 };
 export default function CityItem({
-  city: { cityName, date, emoji, id },
+  city: { cityName, date, emoji, id, position: {lat, lng} },
 }: CityItemProps) {
 
 
   
   return (
     <li>
-      <Link className={styles.cityItem} to={`${id}`} >
+      <Link className={styles.cityItem} to={`${id}?lat=${lat}&lng=${lng}`} >
       <span className={styles.emoji}> {emoji}</span>
       <h3 className={styles.name}>{cityName}</h3>
       <time className={styles.date}>{formatDate(date)}</time>
