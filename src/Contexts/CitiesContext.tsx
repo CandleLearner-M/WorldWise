@@ -1,7 +1,21 @@
-import { createContext, ReactNode, useEffect, useState } from "react";
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import { City } from "../common/types";
 
-const CitiesContext = createContext();
+type CitiesContextType = {
+  isLoading: boolean;
+  cities: City[];
+};
+
+const CitiesContext = createContext<CitiesContextType>({
+  cities: [],
+  isLoading: false,
+});
 
 const BASE_URL = "http://localhost:9010";
 
@@ -20,7 +34,23 @@ function CitiesProvider({ children }: { children: ReactNode }) {
       })
       .catch((error) => console.error(error));
   }, [setCities]);
-  return <CitiesContext.Provider value={{}}>
-    {children}
-  </CitiesContext.Provider>;
+  return (
+    <CitiesContext.Provider
+      value={{
+        cities,
+        isLoading,
+      }}
+    >
+      {children}
+    </CitiesContext.Provider>
+  );
 }
+
+function useCities() {
+  const context = useContext(CitiesContext);
+  if (context === undefined)
+    throw new Error("Context variable used outside of the Provider");
+  return context;
+}
+
+export { CitiesProvider, useCities };
