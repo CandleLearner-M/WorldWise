@@ -43,7 +43,7 @@ function CitiesProvider({ children }: { children: ReactNode }) {
   async function getCity(id: string) {
     try {
       setIsLoading(true);
-      const res = await fetch(`${BASE_URL}/cities${id}`);
+      const res = await fetch(`${BASE_URL}/cities/${id}`);
       const data = await res.json();
       setCurrentCity(data);
     } catch {
