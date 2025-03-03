@@ -1,8 +1,9 @@
-import { useParams, useSearchParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import styles from "./City.module.css";
 import { useCities } from "../Contexts/CitiesContext";
 import { useEffect } from "react";
 import Button from "./Button";
+import Spinner from "./Spinner";
 
 const formatDate = (date) =>
   new Intl.DateTimeFormat("en", {
@@ -16,25 +17,21 @@ function City() {
   const { id } = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const { getCity, currentCity } = useCities();
+  const { getCity, currentCity, isLoading } = useCities();
 
   const lat = searchParams.get("lat");
   const lng = searchParams.get("lng");
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!id) return;
     getCity(id);
   }, [id]);
 
-  // TEMP DATA
-  // const currentCity = {
-  //   cityName: "Lisbon",
-  //   emoji: "🇵🇹",
-  //   date: "2027-10-31T15:59:59.138Z",
-  //   notes: "My favorite city so far!",
-  // };
-
   const { cityName, emoji, date, notes } = currentCity;
+
+  if (isLoading) return <Spinner />;
 
   return (
     <div className={styles.city}>
@@ -69,7 +66,9 @@ function City() {
       </div>
 
       <div>
-        <Button type="back" >Back</Button>
+        <Button type="back" onClick={() => navigate(-1)}>
+          Back
+        </Button>
       </div>
     </div>
   );
