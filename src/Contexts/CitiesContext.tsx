@@ -12,6 +12,7 @@ type CitiesContextType = {
   cities: City[];
   getCity: (id: string) => void;
   currentCity: City;
+  
 };
 
 const CitiesContext = createContext<CitiesContextType>({

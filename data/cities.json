@@ -35,6 +35,66 @@
         "lng": 13.376933665713324
       },
       "id": 98443197
+    },
+    {
+      "cityName": "Tangier",
+      "country": "Morocco",
+      "emoji": "🇲🇦",
+      "date": "2027-05-18T14:30:22.451Z",
+      "notes": "Beautiful coastal city",
+      "position": {
+        "lat": 35.76727,
+        "lng": -5.79975
+      },
+      "id": 54218937
+    },
+    {
+      "cityName": "Tokyo",
+      "country": "Japan",
+      "emoji": "🇯🇵",
+      "date": "2027-09-03T11:42:18.723Z",
+      "notes": "Amazing food and culture",
+      "position": {
+        "lat": 35.6762,
+        "lng": 139.6503
+      },
+      "id": 36729148
+    },
+    {
+      "cityName": "Sydney",
+      "country": "Australia",
+      "emoji": "🇦🇺",
+      "date": "2027-12-25T05:19:33.567Z",
+      "notes": "Spectacular harbor views",
+      "position": {
+        "lat": -33.8688,
+        "lng": 151.2093
+      },
+      "id": 62837491
+    },
+    {
+      "cityName": "Rio de Janeiro",
+      "country": "Brazil",
+      "emoji": "🇧🇷",
+      "date": "2027-03-07T20:15:42.290Z",
+      "notes": "Vibrant carnival atmosphere",
+      "position": {
+        "lat": -22.9068,
+        "lng": -43.1729
+      },
+      "id": 81546239
+    },
+    {
+      "cityName": "Cape Town",
+      "country": "South Africa",
+      "emoji": "🇿🇦",
+      "date": "2027-08-10T17:38:54.113Z",
+      "notes": "Table Mountain is incredible",
+      "position": {
+        "lat": -33.9249,
+        "lng": 18.4241
+      },
+      "id": 45769812
     }
   ]
 }
