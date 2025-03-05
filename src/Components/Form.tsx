@@ -29,7 +29,7 @@ function Form() {
 
   const { lat, lng } = useUrlPosition();
 
-  const { createCity } = useCities();
+  const { createCity, isLoading } = useCities();
 
   const [isLoadingGeoCoding, setIsLoadingGeoCoding] = useState(false);
   const [cityName, setCityName] = useState("");
@@ -71,7 +71,7 @@ function Form() {
     getCityFromLatLng();
   }, [lat, lng]);
 
-  function handleSubmit(e: SubmitEvent) {
+  async function handleSubmit(e: SubmitEvent) {
     e.preventDefault();
 
     if (!cityName || !date) return;
@@ -84,7 +84,8 @@ function Form() {
       notes,
       position: { lat: Number(lat), lng: Number(lng) },
     };
-    createCity(newCity);
+    await createCity(newCity);
+    navigate('/app')
   }
 
   if (isLoadingGeoCoding) return <Spinner />;
@@ -95,7 +96,10 @@ function Form() {
   if (geoCodingError) return <Message message={geoCodingError} />;
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
+    <form
+      className={`${styles.form} ${isLoading ? styles.loading : ""}`}
+      onSubmit={handleSubmit}
+    >
       <div className={styles.row}>
         <label htmlFor="cityName">City name</label>
         <input

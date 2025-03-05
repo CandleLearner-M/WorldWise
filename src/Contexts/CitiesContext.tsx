@@ -67,7 +67,7 @@ function CitiesProvider({ children }: { children: ReactNode }) {
       });
       const data = await res.json();
 
-      console.log(data);
+      setCities((prevCities) => [...prevCities, data]);
     } catch {
       alert("there was an error Loading the data");
     } finally {
