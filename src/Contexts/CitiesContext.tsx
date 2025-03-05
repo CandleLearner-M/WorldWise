@@ -10,9 +10,10 @@ import { City } from "../common/types";
 type CitiesContextType = {
   isLoading: boolean;
   cities: City[];
-  getCity: (id: string) => void;
   currentCity: City;
+  getCity: (id: string) => void;
   createCity: (newCity: City) => void;
+  deleteCity: (id: string) => void;
 };
 
 const CitiesContext = createContext<CitiesContextType>({
@@ -21,6 +22,7 @@ const CitiesContext = createContext<CitiesContextType>({
   getCity: () => {},
   currentCity: {} as City,
   createCity: () => {},
+  deleteCity: () => {},
 });
 
 const BASE_URL = "http://localhost:9010";
@@ -74,6 +76,22 @@ function CitiesProvider({ children }: { children: ReactNode }) {
       setIsLoading(false);
     }
   }
+
+  async function deleteCity(id: string) {
+    try {
+      setIsLoading(true);
+      await fetch(`${BASE_URL}/cities/${id}`, {
+        method: "DELETE",
+      });
+
+      setCities((prevCities) => prevCities.filter((city) => city.id !== id));
+    } catch {
+      alert("there was an error deleting the city");
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
   return (
     <CitiesContext.Provider
       value={{
@@ -82,6 +100,7 @@ function CitiesProvider({ children }: { children: ReactNode }) {
         currentCity,
         getCity,
         createCity,
+        deleteCity
       }}
     >
       {children}
