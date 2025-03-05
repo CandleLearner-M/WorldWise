@@ -13,6 +13,7 @@ import CountriesList from "./Components/CountriesList";
 import CityComp from "./Components/City";
 import Form from "./Components/Form";
 import { CitiesProvider } from "./Contexts/CitiesContext";
+import { AuthProvider } from "./Contexts/AuthContext";
 
 function App() {
   return (
@@ -20,7 +21,9 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route index element={<Home />} />
-          <Route path="login" element={<Login />} />
+          <AuthProvider>
+            <Route path="login" element={<Login />} />
+          </AuthProvider>
           <Route path="app" element={<AppLayout />}>
             <Route index element={<Navigate replace to="cities" />} />
             <Route path="cities" element={<CityList />} />
