@@ -1,3 +1,16 @@
 {
-  "cities": []
+  "cities": [
+    {
+      "id": "55d5",
+      "cityName": "Tangier",
+      "country": "Morocco",
+      "emoji": "🇲🇦",
+      "date": "2025-03-05T11:47:26.017Z",
+      "notes": "",
+      "position": {
+        "lat": 35.727438717168965,
+        "lng": -5.909271240234376
+      }
+    }
+  ]
 }
