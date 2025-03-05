@@ -7,10 +7,10 @@ export interface City {
   cityName: string;
   country: string;
   emoji: string;
-  date: string;
+  date: string | Date;
   notes: string;
   position: Position;
-  id: string;
+  id?: string;
 }
 
 
